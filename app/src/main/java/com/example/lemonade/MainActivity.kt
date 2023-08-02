@@ -110,7 +110,6 @@ class MainActivity : AppCompatActivity() {
                 lemonSize = lemonTree.pick()
                 squeezeCount = 0
             }
-
             SQUEEZE -> {
                 if (lemonSize > 0) {
                     squeezeCount++
@@ -120,15 +119,14 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-
             DRINK -> {
                 lemonadeState = RESTART
             }
-
             else -> {
                 lemonadeState = SELECT
             }
         }
+        setViewElements()
 
         // TODO: When the image is clicked in the SELECT state, the state should become SQUEEZE
         //  - The lemonSize variable needs to be set using the 'pick()' method in the LemonTree class
@@ -168,7 +166,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         textAction.text = getString(actualString)
-        lemonImage.setImageResource(actualImage)
+        lemonImage!!.setImageResource(actualImage)
 
 
         // TODO: set up a conditional that tracks the lemonadeState
